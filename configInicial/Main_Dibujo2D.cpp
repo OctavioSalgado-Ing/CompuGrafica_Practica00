@@ -66,7 +66,7 @@ int main() {
 	};
 	unsigned int indices[] = {  // note that we start from 0!
 		3,2,1,// second Triangle
-		0,1,3,
+		0,2,3,
 		
 	};
 
@@ -118,27 +118,37 @@ int main() {
         ourShader.Use();
 		glBindVertexArray(VAO);
 
-		//Descomentar lineas para correr ejercicio 1, solo las dos sig.
-		glPointSize(10);
-        glDrawArrays(GL_POINTS,0,4);
 
-
-
-        
         //glDrawArrays(GL_LINES,0,2);
         //glDrawArrays(GL_LINE_LOOP,0,4);
 
 
+		//Ejercicio 1 --> 4 vértices
+		//glPointSize(10);
+        //glDrawArrays(GL_POINTS,0,4);
 
 
-		//Descomentar para actividad 2
+		//Ejercicio 2 --> Dos líneas paralelas en una sola línea de code
 		//glLineWidth(5.0f);             // Ajusta el grosor de la línea
 		//glDrawArrays(GL_LINES, 0, 4);
 
 
-        //Descomentar para act3. Cambiamos 6, para que dibuje 2 triangulos, los dos conforman el cuadrilatero.
+		//Ejercicio 3 --> Dibuja un cuadrilatero.
         //glDrawArrays(GL_TRIANGLES,0,3);
-        //glDrawElements(GL_TRIANGLES, 3,GL_UNSIGNED_INT,0);
+		//glDrawElements(GL_TRIANGLES, 6,GL_UNSIGNED_INT,0);
+
+		
+		//Ejercicio 4 --> Dibuja un triángulo con cateto adyacente en la der.
+		//glDrawElements(GL_LINE_LOOP, 3, GL_UNSIGNED_INT, (void*)(3 * sizeof(unsigned int)));
+
+
+		//Ejercicio 5 --> Dibuja un triángulo con cateto adyacente en la izq.
+		//Para triángulo con angulo recto arriba a la izq, 
+		//modificando los índices (0,1,3,) a 0,2,3
+		//glDrawElements(GL_LINE_LOOP, 3, GL_UNSIGNED_INT, (void*)(3 * sizeof(unsigned int)));
+
+
+        
 		
 		
 		glBindVertexArray(0);
