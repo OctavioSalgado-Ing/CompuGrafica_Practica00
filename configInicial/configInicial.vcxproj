@@ -117,10 +117,13 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\octav\Desktop\CU\9°Sem\Lab. Compu Gráfica\Practica00\External Libraries\GLEW\include;C:\Users\octav\Desktop\CU\9°Sem\Lab. Compu Gráfica\Practica00\External Libraries\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\octav\Desktop\CU\9°Sem\Lab. Compu Gráfica\Practica00\External Libraries\GLEW\lib\Release\Win32;C:\Users\octav\Desktop\CU\9°Sem\Lab. Compu Gráfica\Practica00\External Libraries\GLFW\lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
@@ -135,17 +138,27 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\octav\Desktop\CU\9°Sem\Lab. Compu Gráfica\Practica00\External Libraries\GLEW\include;C:\Users\octav\Desktop\CU\9°Sem\Lab. Compu Gráfica\Practica00\External Libraries\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\octav\Desktop\CU\9°Sem\Lab. Compu Gráfica\Practica00\External Libraries\GLEW\lib\Release\Win32;C:\Users\octav\Desktop\CU\9°Sem\Lab. Compu Gráfica\Practica00\External Libraries\GLFW\lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="..\..\Practica01\Main_Dibujo2D.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Practica01\Shader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Practica01\Shader\core.frag" />
+    <None Include="..\..\Practica01\Shader\core.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
