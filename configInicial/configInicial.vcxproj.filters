@@ -18,21 +18,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Practica01\Main_Dibujo2D.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Practica01\Shader.h">
+    <ClInclude Include="..\Practica02\Shader.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Practica01\Shader\core.frag">
-      <Filter>Archivos de origen\Shader.</Filter>
-    </None>
-    <None Include="..\..\Practica01\Shader\core.vs">
-      <Filter>Archivos de origen\Shader.</Filter>
-    </None>
+    <ClCompile Include="Main_Dibujo2D.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
