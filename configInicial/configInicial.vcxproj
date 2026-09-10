@@ -151,14 +151,14 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Practica01\Main_Dibujo2D.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\Practica01\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Practica01\Shader\core.frag" />
     <None Include="..\..\Practica01\Shader\core.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main_Dibujo2D.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

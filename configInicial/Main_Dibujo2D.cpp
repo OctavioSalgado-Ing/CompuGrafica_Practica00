@@ -145,7 +145,7 @@ int main() {
 		//Ejercicio 5 --> Dibuja un triángulo con cateto adyacente en la izq.
 		//Para triángulo con angulo recto arriba a la izq, 
 		//modificando los índices (0,1,3,) a 0,2,3
-		//glDrawElements(GL_LINE_LOOP, 3, GL_UNSIGNED_INT, (void*)(3 * sizeof(unsigned int)));
+		glDrawElements(GL_LINE_LOOP, 3, GL_UNSIGNED_INT, (void*)(3 * sizeof(unsigned int)));
 
 
         
