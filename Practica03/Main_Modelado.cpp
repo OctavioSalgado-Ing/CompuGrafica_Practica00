@@ -17,12 +17,25 @@
 
 void Inputs(GLFWwindow *window);
 
+//Función para patas.
+void DrawCube(GLuint VAO, GLint modelLoc, glm::vec3 traslacion, glm::vec3 escala)
+{
+	glm::mat4 model = glm::mat4(1.0f);
+	model = glm::translate(model, traslacion);
+	model = glm::scale(model, escala);
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+	glDrawArrays(GL_TRIANGLES, 0, 36);
+}
+
+
 
 const GLint WIDTH = 800, HEIGHT = 600;
 float movX=0.0f;
 float movY=0.0f;
 float movZ=-5.0f;
 float rot = 0.0f;
+float rotX = 0.0f;
+float rotZ = 0.0f;
 int main() {
 	glfwInit();
 	//Verificación de compatibilidad 
@@ -183,7 +196,15 @@ int main() {
 	
 
 		view = glm::translate(view, glm::vec3(movX,movY, movZ));
+
+		//Rotacion en Y con las flechas derecha e izquierda
 		view = glm::rotate(view, glm::radians(rot), glm::vec3(0.0f, 1.0f, 0.0f));
+
+		//Rotacion en X con las teclas I y K
+		view = glm::rotate(view, glm::radians(rotX), glm::vec3(1.0f, 0.0f, 0.0f));
+
+		//Rotacion en Z con las teclas O y L
+		view = glm::rotate(view, glm::radians(rotZ), glm::vec3(0.0f, 0.0f, 1.0f));
 
 		GLint modelLoc = glGetUniformLocation(ourShader.Program, "model");
 		GLint viewLoc = glGetUniformLocation(ourShader.Program, "view");
@@ -196,10 +217,19 @@ int main() {
 	
 
 		glBindVertexArray(VAO);
-	
-	    model = glm::mat4(1.0f);
+
+		//Tabla de una mesa
+		model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(2.0f, 0.15f, 1.2f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+
+		//Patas (usando la función)
+		DrawCube(VAO, modelLoc, glm::vec3(-0.8f, -0.525f, 0.45f), glm::vec3(0.1f, 0.9f, 0.1f));
+		DrawCube(VAO, modelLoc, glm::vec3(0.8f, -0.525f, 0.45f), glm::vec3(0.1f, 0.9f, 0.1f));
+		DrawCube(VAO, modelLoc, glm::vec3(-0.8f, -0.525f, -0.45f), glm::vec3(0.1f, 0.9f, 0.1f));
+		DrawCube(VAO, modelLoc, glm::vec3(0.8f, -0.525f, -0.45f), glm::vec3(0.1f, 0.9f, 0.1f));
 		glBindVertexArray(0);
 
 				
@@ -219,22 +249,43 @@ int main() {
  void Inputs(GLFWwindow *window) {
 	 if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)  //GLFW_RELEASE
 		 glfwSetWindowShouldClose(window, true);
+
+	 //Movimiento en X (D y A)
 	 if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		 movX += 0.08f;
 	 if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
 		 movX -= 0.08f;
-	 if (glfwGetKey(window, GLFW_KEY_PAGE_UP) == GLFW_PRESS)
+
+	 //Movimiento en Y (flechas arriba y abajo)
+	 if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
 		 movY += 0.08f;
-	 if (glfwGetKey(window, GLFW_KEY_PAGE_DOWN) == GLFW_PRESS)
+	 if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
 		 movY -= 0.08f;
+
+	 //Movimiento en Z (W y S)
 	 if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 		 movZ -= 0.08f;
 	 if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
 		 movZ += 0.08f;
+
+	 //Rotación en Y (flechas derecha e izquierda)
 	 if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
 		 rot += 0.4f;
 	 if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
 		 rot -= 0.4f;
+
+	 //Rotación en X (I y K)
+	 if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
+		 rotX += 0.4f;
+	 if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
+		 rotX -= 0.4f;
+
+	 //Rotación en Z (O y L)
+	 if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
+		 rotZ += 0.4f;
+	 if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
+		 rotZ -= 0.4f;
+	
  }
 
 
