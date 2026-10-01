@@ -89,13 +89,13 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\External Libraries\GLEW\include;$(SolutionDir)..\External Libraries\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\External Libraries\GLEW\include;$(SolutionDir)..\External Libraries\GLFW\include;%(AdditionalIncludeDirectories);$(SolutionDir)..\External Libraries\assimp\include;$(ProjectDir)SOIL2;$(ProjectDir);$(SolutionDir)..\External Libraries\assimp\include;$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\External Libraries\GLEW\lib\Release\Win32;$(SolutionDir)..\External Libraries\GLFW\lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\External Libraries\GLEW\lib\Release\Win32;$(SolutionDir)..\External Libraries\GLFW\lib-vc2015;%(AdditionalLibraryDirectories);$(SolutionDir)..\External Libraries\SOIL2\lib;$(SolutionDir)..\External Libraries\assimp\lib;$(SolutionDir)..\External Libraries\SOIL2\lib;$(SolutionDir)..\External Libraries\assimp\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies);assimp-vc140-mt.lib;soil2-debug.lib;assimp-vc140-mt.lib;soil2-debug.lib</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
@@ -110,13 +110,13 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\External Libraries\GLEW\include;$(SolutionDir)..\External Libraries\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\External Libraries\GLEW\include;$(SolutionDir)..\External Libraries\GLFW\include;%(AdditionalIncludeDirectories);$(SolutionDir)..\External Libraries\assimp\include;$(ProjectDir)SOIL2;$(ProjectDir);$(SolutionDir)..\External Libraries\assimp\include;$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\External Libraries\GLEW\lib\Release\Win32;$(SolutionDir)..\External Libraries\GLFW\lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\External Libraries\GLEW\lib\Release\Win32;$(SolutionDir)..\External Libraries\GLFW\lib-vc2015;%(AdditionalLibraryDirectories);$(SolutionDir)..\External Libraries\SOIL2\lib;$(SolutionDir)..\External Libraries\assimp\lib;$(SolutionDir)..\External Libraries\SOIL2\lib;$(SolutionDir)..\External Libraries\assimp\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies);assimp-vc140-mt.lib;soil2-debug.lib;assimp-vc140-mt.lib;soil2-debug.lib</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
@@ -129,10 +129,13 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>;$(SolutionDir)..\External Libraries\assimp\include;$(ProjectDir)SOIL2;$(ProjectDir);$(SolutionDir)..\External Libraries\assimp\include;$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>;$(SolutionDir)..\External Libraries\SOIL2\lib;$(SolutionDir)..\External Libraries\assimp\lib;$(SolutionDir)..\External Libraries\SOIL2\lib;$(SolutionDir)..\External Libraries\assimp\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);assimp-vc140-mt.lib;soil2-debug.lib;assimp-vc140-mt.lib;soil2-debug.lib</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
@@ -147,17 +150,27 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>;$(SolutionDir)..\External Libraries\assimp\include;$(ProjectDir)SOIL2;$(ProjectDir);$(SolutionDir)..\External Libraries\assimp\include;$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>;$(SolutionDir)..\External Libraries\SOIL2\lib;$(SolutionDir)..\External Libraries\assimp\lib;$(SolutionDir)..\External Libraries\SOIL2\lib;$(SolutionDir)..\External Libraries\assimp\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);assimp-vc140-mt.lib;soil2-debug.lib;assimp-vc140-mt.lib;soil2-debug.lib</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\Practica02\Shader.h" />
+    <ClCompile Include="..\Practica05\Carga de Modelos.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Practica05\Camera.h" />
+    <ClInclude Include="..\Practica05\Mesh.h" />
+    <ClInclude Include="..\Practica05\Model.h" />
+    <ClInclude Include="..\Practica05\Shader.h" />
+    <ClInclude Include="..\Practica05\stb_image.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
