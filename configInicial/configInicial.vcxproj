@@ -157,10 +157,12 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Practica02\Main_P3.cpp" />
+    <ClCompile Include="..\Practica06\Texturizado.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Practica02\Shader.h" />
+    <ClInclude Include="..\Practica06\Camera.h" />
+    <ClInclude Include="..\Practica06\Shader.h" />
+    <ClInclude Include="..\Practica06\stb_image.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
