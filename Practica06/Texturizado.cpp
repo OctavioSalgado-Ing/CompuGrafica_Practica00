@@ -102,12 +102,37 @@ int main()
 	GLfloat vertices[] =
 	{
 		// Positions            // Colors              // Texture Coords
-		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,0.0f,
-		0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		1.0f,0.0f,
-		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    1.0f,1.0f,
-		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,1.0f,
 
-		
+		// Cuadro completo (4 cuadrantes) Ejercicio original
+		//-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,0.0f,
+		//0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		1.0f,0.0f,
+		//0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    1.0f,1.0f,
+		//-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,1.0f,
+
+
+		// VENTANAS REPETIDAS: 3.5 horizontal x 5.5 vertical
+		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,0.0f,
+		0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		3.5f,0.0f,
+		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    3.5f,5.5f,
+		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,5.5f,
+
+		//  EJERCICIO 1: cuadrante inferior derecho
+		//-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.5f,0.0f,
+		//0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		1.0f,0.0f,
+		//0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    1.0f,0.5f,
+		//-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.5f,0.5f,
+
+		//  EJERCICIO 2: cuadrante superior izquierdo 
+		//-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,0.5f,
+		//0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		0.5f,0.5f,
+		//0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    0.5f,1.0f,
+		//-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,1.0f,
+
+		//  EJERCICIO 3: cuadrante del medio 
+		//-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.25f,0.25f,
+		//0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		0.75f,0.25f,
+		//0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    0.75f,0.75f,
+		//-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.25f,0.75f,
 	};
 
 	GLuint indices[] =
@@ -153,13 +178,12 @@ int main()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST_MIPMAP_NEAREST);
 	// Diffuse map
-	image = stbi_load("images/checker_Tex.png", &textureWidth, &textureHeight, &nrChannels,0);
-	glBindTexture(GL_TEXTURE_2D, texture1);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
-	glGenerateMipmap(GL_TEXTURE_2D);
+	//image = stbi_load("images/checker_Tex.png", &textureWidth, &textureHeight, &nrChannels, 0);   // ejercicios 1, 2 y 3
+	image = stbi_load("images/window.png", &textureWidth, &textureHeight, &nrChannels, 0);           // ventana y ventanas repetidas
 	if (image)
 	{
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+		GLenum formato = (nrChannels == 4) ? GL_RGBA : GL_RGB;
+		glTexImage2D(GL_TEXTURE_2D, 0, formato, textureWidth, textureHeight, 0, formato, GL_UNSIGNED_BYTE, image);
 		glGenerateMipmap(GL_TEXTURE_2D);
 	}
 	else
