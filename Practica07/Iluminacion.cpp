@@ -41,6 +41,7 @@ bool firstMouse = true;
 // Light attributes
 glm::vec3 lightPos(0.5f, 0.5f, 2.5f);
 float movelightPos = 0.0f;
+glm::vec3 lightPos2(-2.5f, 0.8f, 4.0f);   // posición de la luz 2
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
 float rot = 0.0f;
@@ -216,6 +217,26 @@ int main()
 
 
         // Set lights properties
+        //Mnadar las propiedades de la luz del code principal al shader
+
+        //Primera propiedad (de la luz)
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "light.ambient"), 0.3f, 0.3f, 0.3f);
+        
+        //Segunda propiedad (diffusa)
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "light.diffuse"), 0.3f, 0.3f, 0.3f);
+        
+
+		//Tercera propiedad (especular)
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "light.specular"), 0.0f, 0.0f, 0.0f);
+
+
+        // Luz 2: posición y propiedades 
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "light2.position"), lightPos2.x, lightPos2.y, lightPos2.z);
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "light2.ambient"), 0.0f, 0.0f, 0.1f);
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "light2.diffuse"), 0.0f, 0.4f, 1.0f);
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "light2.specular"), 0.3f, 0.5f, 1.0f);
+
+        
         
 
 
@@ -226,7 +247,11 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
 
         // Set material properties
-        
+       
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "material.ambient"), 0.3f, 0.2f, 0.5f);
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "material.diffuse"), 0.8f, 0.6f, 0.1f);
+        glUniform3f(glGetUniformLocation(lightingShader.Program, "material.diffuse"), 1.0f, 1.0f, 1.0f);
+        glUniform1f(glGetUniformLocation(lightingShader.Program, "material.shininess"), 32.0f);
 
 
 
@@ -238,8 +263,9 @@ int main()
         model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
         glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         glBindVertexArray(VAO);
-       
-        glDrawArrays(GL_TRIANGLES, 0, 36);
+
+       //Cambiamos los vertices por la imagen del perro
+        red_dog.Draw(lightingShader);
         
 
         glBindVertexArray(0);
@@ -252,6 +278,15 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
         model = glm::mat4(1.0f);
         model = glm::translate(model, lightPos + movelightPos);
+        model = glm::scale(model, glm::vec3(0.3f));
+        glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        glBindVertexArray(VAO);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+        glBindVertexArray(0);
+
+        // Cubo de la luz 2 (se mueve con T, G, F, H, R, Y)
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, lightPos2);
         model = glm::scale(model, glm::vec3(0.3f));
         glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         glBindVertexArray(VAO);
@@ -293,6 +328,15 @@ void DoMovement()
     {
         camera.ProcessKeyboard(RIGHT, deltaTime);
     }
+    // Luz 2: se mueve con sus propias teclas
+    float v = 3.0f * deltaTime;                  // velocidad del movimiento
+    if (keys[GLFW_KEY_T]) lightPos2.y += v;      // T: sube
+    if (keys[GLFW_KEY_G]) lightPos2.y -= v;      // G: baja
+    if (keys[GLFW_KEY_F]) lightPos2.x -= v;      // F: izquierda
+    if (keys[GLFW_KEY_H]) lightPos2.x += v;      // H: derecha
+    if (keys[GLFW_KEY_R]) lightPos2.z -= v;      // R: hacia el fondo
+    if (keys[GLFW_KEY_Y]) lightPos2.z += v;      // Y: hacia ti
+
 
     if (activanim)
     {
