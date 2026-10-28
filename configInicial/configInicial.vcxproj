@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{FB17F1F0-D554-4E56-BADE-56F20650A6DB}</ProjectGuid>
+    <ProjectGuid>{68F78723-CD3C-6AA1-2260-D57BEC0645E2}</ProjectGuid>
     <RootNamespace>configInicial</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -89,13 +89,13 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\External Libraries\GLEW\include;$(SolutionDir)..\External Libraries\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\External Libraries\GLEW\include;$(SolutionDir)..\External Libraries\GLFW\include;%(AdditionalIncludeDirectories);$(SolutionDir)..\External Libraries\assimp\include;$(ProjectDir)SOIL2;$(ProjectDir);$(SolutionDir)..\External Libraries\assimp\include;$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\External Libraries\GLEW\lib\Release\Win32;$(SolutionDir)..\External Libraries\GLFW\lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\External Libraries\GLEW\lib\Release\Win32;$(SolutionDir)..\External Libraries\GLFW\lib-vc2015;%(AdditionalLibraryDirectories);$(SolutionDir)..\External Libraries\SOIL2\lib;$(SolutionDir)..\External Libraries\assimp\lib;$(SolutionDir)..\External Libraries\SOIL2\lib;$(SolutionDir)..\External Libraries\assimp\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies);assimp-vc140-mt.lib;soil2-debug.lib;assimp-vc140-mt.lib;soil2-debug.lib</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
@@ -110,13 +110,13 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\External Libraries\GLEW\include;$(SolutionDir)..\External Libraries\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\External Libraries\GLEW\include;$(SolutionDir)..\External Libraries\GLFW\include;%(AdditionalIncludeDirectories);$(SolutionDir)..\External Libraries\assimp\include;$(ProjectDir)SOIL2;$(ProjectDir);$(SolutionDir)..\External Libraries\assimp\include;$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\External Libraries\GLEW\lib\Release\Win32;$(SolutionDir)..\External Libraries\GLFW\lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\External Libraries\GLEW\lib\Release\Win32;$(SolutionDir)..\External Libraries\GLFW\lib-vc2015;%(AdditionalLibraryDirectories);$(SolutionDir)..\External Libraries\SOIL2\lib;$(SolutionDir)..\External Libraries\assimp\lib;$(SolutionDir)..\External Libraries\SOIL2\lib;$(SolutionDir)..\External Libraries\assimp\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies);assimp-vc140-mt.lib;soil2-debug.lib;assimp-vc140-mt.lib;soil2-debug.lib</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
@@ -129,10 +129,13 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>;$(SolutionDir)..\External Libraries\assimp\include;$(ProjectDir)SOIL2;$(ProjectDir);$(SolutionDir)..\External Libraries\assimp\include;$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>;$(SolutionDir)..\External Libraries\SOIL2\lib;$(SolutionDir)..\External Libraries\assimp\lib;$(SolutionDir)..\External Libraries\SOIL2\lib;$(SolutionDir)..\External Libraries\assimp\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);assimp-vc140-mt.lib;soil2-debug.lib;assimp-vc140-mt.lib;soil2-debug.lib</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
@@ -147,20 +150,31 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>;$(SolutionDir)..\External Libraries\assimp\include;$(ProjectDir)SOIL2;$(ProjectDir);$(SolutionDir)..\External Libraries\assimp\include;$(ProjectDir)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>;$(SolutionDir)..\External Libraries\SOIL2\lib;$(SolutionDir)..\External Libraries\assimp\lib;$(SolutionDir)..\External Libraries\SOIL2\lib;$(SolutionDir)..\External Libraries\assimp\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);assimp-vc140-mt.lib;soil2-debug.lib;assimp-vc140-mt.lib;soil2-debug.lib</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Practica02\Main_P3.cpp" />
+    <ClCompile Include="..\Practica08\fuentesDeLuz.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Practica02\Shader.h" />
+    <ClInclude Include="..\Practica08\Camera.h" />
+    <ClInclude Include="..\Practica08\Mesh.h" />
+    <ClInclude Include="..\Practica08\Model.h" />
+    <ClInclude Include="..\Practica08\Shader.h" />
+    <ClInclude Include="..\Practica08\stb_image.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shader\lighting.frag" />
+    <None Include="Shader\lighting.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
