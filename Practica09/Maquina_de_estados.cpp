@@ -499,6 +499,11 @@ void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode
 		AnimBall = !AnimBall;
 		
 	}
+
+	if (keys[GLFW_KEY_M])
+	{
+		AnimDog = !AnimDog;   // M: cambia entre quieto y caminando
+	}
 	
 }
 void Animation() {
@@ -507,14 +512,30 @@ void Animation() {
 		rotBall += 0.4f;
 		//printf("%f", rotBall);
 	}
-	
+
 	if (AnimDog)
 	{
-		rotDog -= 0.6f;
-		//printf("%f", rotBall);
+		dogPos.z += 0.5f * deltaTime;       // el perro siempre avanza
+
+		if (step == false)                  // FASE 1: las partes suben
+		{
+			RLegs += 60.0f * deltaTime;
+			FLegs += 60.0f * deltaTime;
+			head += 60.0f * deltaTime;
+			tail += 60.0f * deltaTime;
+			if (RLegs > 15.0f)
+				step = true;                // llegó a 15 grados: pasa a la fase 2
+		}
+		else                                // FASE 2 (step == true): las partes bajan
+		{
+			RLegs -= 60.0f * deltaTime;
+			FLegs -= 60.0f * deltaTime;
+			head -= 60.0f * deltaTime;
+			tail -= 60.0f * deltaTime;
+			if (RLegs < -15.0f)
+				step = false;               // llegó a -15: regresa a la fase 1
+		}
 	}
-	
-	
 }
 
 void MouseCallback(GLFWwindow *window, double xPos, double yPos)
