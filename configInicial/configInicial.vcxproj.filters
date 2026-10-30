@@ -18,7 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Practica09\Animacion_Basica.cpp">
+    <ClCompile Include="..\Practica09\Maquina_de_estados.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

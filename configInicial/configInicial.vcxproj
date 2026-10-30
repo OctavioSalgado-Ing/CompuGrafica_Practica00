@@ -163,7 +163,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Practica09\Animacion_Basica.cpp" />
+    <ClCompile Include="..\Practica09\Maquina_de_estados.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Practica09\Camera.h" />
